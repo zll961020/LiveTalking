@@ -391,7 +391,7 @@ if __name__ == '__main__':
     parser.add_argument('--push_url', type=str, default='http://localhost:1985/rtc/v1/whip/?app=live&stream=livestream') #rtmp://localhost/live/livestream
 
     parser.add_argument('--max_session', type=int, default=1)  #multi session count
-    parser.add_argument('--listenport', type=int, default=8010)
+    parser.add_argument('--listenport', type=int, default=8001)
 
     opt = parser.parse_args()
     #app.config.from_object(opt)
@@ -424,7 +424,7 @@ if __name__ == '__main__':
     elif opt.model == 'wav2lip':
         from lipreal import LipReal,load_model,load_avatar,warm_up
         logger.info(opt)
-        model = load_model("./models/wav2lip.pth")
+        model = load_model("./models/wav2lip256.pth")
         avatar = load_avatar(opt.avatar_id)
         warm_up(opt.batch_size,model,256)
         # for k in range(opt.max_session):
